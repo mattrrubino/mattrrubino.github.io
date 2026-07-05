@@ -18,6 +18,7 @@ export type Project = {
     technologies: Technology[],
     relatedPublicationId?: string,
     desktopOnly?: boolean,
+    chromiumOnly?: boolean,
 }
 
 const PROJECTS: Array<Project> = [
@@ -164,6 +165,7 @@ const PROJECTS: Array<Project> = [
         play: "/projects/christmas",
         source: "https://github.com/mattrrubino/Ho-Ho-Ho-Down",
         desktopOnly: true,
+        chromiumOnly: true,
     },
     {
         id: "covid-visualization",

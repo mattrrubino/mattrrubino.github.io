@@ -24,6 +24,7 @@ import Disclosure from "../components/Disclosure";
 import IconLink from "../components/IconLink";
 import { GithubIcon } from "../components/BrandIcons";
 import PROJECTS from "../models/Project";
+import { isChromiumBrowser } from "../lib/browser";
 
 const PROJECT_ICONS: Record<string, LucideIcon> = {
     AudioWaveform,
@@ -39,6 +40,7 @@ const PROJECT_ICONS: Record<string, LucideIcon> = {
 
 function Projects() {
     const [openIds, setOpenIds] = useState<Set<string>>(new Set());
+    const [isChromium] = useState(isChromiumBrowser);
 
     const toggle = (id: string) => {
         setOpenIds((prev) => {
@@ -102,7 +104,7 @@ function Projects() {
                                             ))}
                                         </div>
                                         <div className="flex flex-wrap gap-x-6 gap-y-2 mt-5">
-                                            {project.play && (
+                                            {project.play && (!project.chromiumOnly || isChromium) && (
                                                 <span className={project.desktopOnly ? "hidden sm:inline-flex" : "inline-flex"}>
                                                     <IconLink
                                                         href={project.play}
