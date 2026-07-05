@@ -11,9 +11,8 @@ function Hero() {
                             Matthew Rubino
                         </h1>
                         <p className="mt-6 max-w-prose text-lg text-text-muted">
-                            I'm a full-stack developer who thrives in high-ownership
-                            environments, working well through ambiguous and evolving
-                            requirements.
+                            I'm a product-oriented full-stack developer who thrives in
+                            high-ownership environments.
                         </p>
                         <div className="mt-10">
                             <a
