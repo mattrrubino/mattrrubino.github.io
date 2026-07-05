@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const SECTIONS: Array<{ id: string; label: string }> = [
     { id: "about", label: "About" },
@@ -13,6 +14,7 @@ export interface INavProps {
 
 function Nav({ activeId }: INavProps) {
     const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 24);
@@ -24,7 +26,7 @@ function Nav({ activeId }: INavProps) {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-40 px-6 transition-colors duration-200 ${
-                scrolled ? "bg-surface/80 backdrop-blur border-b border-border" : "bg-transparent"
+                scrolled || menuOpen ? "bg-surface/80 backdrop-blur border-b border-border" : "bg-transparent"
             }`}
         >
             <nav className="mx-auto max-w-5xl py-4 flex items-center justify-between">
@@ -50,7 +52,33 @@ function Nav({ activeId }: INavProps) {
                         </li>
                     ))}
                 </ul>
+                <button
+                    type="button"
+                    className="sm:hidden text-text-muted hover:text-accent transition-colors duration-200"
+                    aria-label={menuOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={menuOpen}
+                    onClick={() => setMenuOpen((open) => !open)}
+                >
+                    {menuOpen ? <X size={22} /> : <Menu size={22} />}
+                </button>
             </nav>
+            {menuOpen && (
+                <ul className="sm:hidden flex flex-col gap-1 pb-4">
+                    {SECTIONS.map((section) => (
+                        <li key={section.id}>
+                            <a
+                                href={`#${section.id}`}
+                                onClick={() => setMenuOpen(false)}
+                                className={`block py-2 text-sm font-medium transition-colors duration-200 ${
+                                    activeId === section.id ? "text-accent" : "text-text-muted hover:text-text"
+                                }`}
+                            >
+                                {section.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </header>
     );
 }

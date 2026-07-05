@@ -180,6 +180,7 @@ const PROJECTS: Array<Project> = [
         ],
         play: "/projects/covid",
         source: "https://github.com/mattrrubino/covid-visualization",
+        desktopOnly: true,
     },
 ];
 

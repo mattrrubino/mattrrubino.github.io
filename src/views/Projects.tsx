@@ -103,16 +103,13 @@ function Projects() {
                                         </div>
                                         <div className="flex flex-wrap gap-x-6 gap-y-2 mt-5">
                                             {project.play && (
-                                                <span className="inline-flex items-center gap-2">
+                                                <span className={project.desktopOnly ? "hidden sm:inline-flex" : "inline-flex"}>
                                                     <IconLink
                                                         href={project.play}
                                                         label="Live Demo"
                                                         icon={<PlayCircle size={16} />}
                                                         internal
                                                     />
-                                                    {project.desktopOnly && (
-                                                        <span className="text-xs text-text-muted">(desktop only)</span>
-                                                    )}
                                                 </span>
                                             )}
                                             {project.source && (
