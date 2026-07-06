@@ -18,7 +18,7 @@ const EXPERIENCES: Array<Experience> = [
     end: "Present",
     description: [
       "I develop and ship full-stack features on Epic's claims adjudication platform using C#, TypeScript, and M, serving roughly 50 health insurers. I own a specific portion of a large effort to add new contract modeling functionality to the platform, collaborating with three other developers.",
-      "Earlier work included migrating about 30 high-volume claim workflows under a tight deadline ahead of a proposed HIPAA security rule update, and building new features that help customers automate parts of their retroadjudication process. I also spend time fixing bugs, reviewing code, and responding to customer incidents to keep the platform reliable.",
+      "Earlier work included migrating about 30 high-volume claim workflows under a tight deadline ahead of a proposed HIPAA security rule update, and building new features that help customers automate parts of their retroadjudication process. I also spend time fixing bugs, reviewing code, and responding to customer-reported incidents to keep the platform reliable.",
     ],
   },
   {
